@@ -7,9 +7,10 @@
     <title>Uno</title>
   </head>
   <body>
-    <canvas id="canvas" width="1000" height="600"></canvas>
+    <canvas id="canvas" width="1700" height="900"></canvas>
     <script src="/socket.io/socket.io.js"></script>
     <script src="/main.js"></script>
+    <div id="funni">
 
     <img id="openingScreen" src="images/OpeningScreen.png">
 
@@ -40,11 +41,25 @@
         </div>
 
         <button class="host">
-            <img class="optionButtons" src="images/HostARoom.png">
+            <img class="optionButtons" src="images/HostARoom.png" onclick="funni2()">
         </button>
+    </div>
+<!--    <canvas id="canvas" width="1700" height="900"></canvas>-->
+
+
 
 <script>
+    // document.getElementById("canvas").style.display = "none";
 //POPUP ANIMATION
+    function funni2(){
+        var x = document.getElementById("funni");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+        // document.getElementById("canvas").style.display = "block";
+    }
     function popup() {
         var popup = document.getElementById("myPopup");
         popup.classList.toggle("show");
