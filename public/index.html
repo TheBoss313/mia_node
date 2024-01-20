@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+  	<meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/svg" href="images/uno.svg">
+    <title>Uno</title>
+  </head>
+  <body>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/main.js"></script>
+
+    <img id="openingScreen" src="OpeningScreen.png">
+
+        <div class="center">
+            <div class="blue5 card"></div>
+            <div class="red9 card"></div>
+            <div class="green7 card"></div>
+            <div class="yellowSwitch card"></div>
+            <div class="redPass card"></div>
+            <div class="wildCard card"></div>
+            <div class="blue3 card"></div>
+        </div>
+
+        <div class="fade-in-image">
+            <img class="title" src="Title.png">
+        </div>
+
+        <div class="popup" onclick="popup()">
+            <button>
+                <img class="optionButtons" src="JoinARoom.png">
+            </button>
+            <span class="popuptext" id="myPopup">
+                <form>
+                    <label for="textBox"></label>
+                    <input type="text" id="textBox" name="textBox">
+                </form>
+            </span>
+        </div>
+
+        <button class="host">
+            <img class="optionButtons" src="HostARoom.png">
+        </button>
+
+<script>
+//POPUP ANIMATION
+    function popup() {
+        var popup = document.getElementById("myPopup");
+        popup.classList.toggle("show");
+    }
+</script>
+  </body>
+</html>

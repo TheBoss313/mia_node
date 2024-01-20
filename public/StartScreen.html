@@ -1,0 +1,290 @@
+<!--Move card deck slightly left afer animation-->
+<!--Fix "Join a Room button" to allow user to enter text after clicking on the button-->
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    body {
+        background-color: #4D150E;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        overflow: hidden;
+    }
+
+    input {
+        pointer-events: auto;
+    }
+
+/*OPTIONS BUTTON*/
+    button {
+        border: none;
+        background: none;
+    }
+    .optionButtons {
+        width: 300px;
+        height: 60px;
+        top: 95px;
+        position: absolute;
+        cursor: pointer;
+        pointer-events: auto;
+    }
+    .popup {
+        left: 390px;
+        top: 487px;
+        position: absolute;
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    .popup .popuptext {
+        visibility: hidden;
+        width: 250px;
+        height:50px;
+        background-color: #FF3131;
+        border-color: #DF2F2F;
+        text-align: center;
+        border-radius: 10px;
+        position: absolute;
+        z-index: 1;
+        top: 155px;
+        left: 110px;
+        margin-left: -80px;
+        pointer-events: none;
+    }
+    .popup .show {
+        visibility: visible;
+    }
+
+
+
+    .title {
+        width: 300px;
+        position: absolute;
+        height: 150px;
+        top: 300px;
+        left: 600px;
+    }
+    .multiOptions {
+        width: 200px;
+        height: 50px;
+    }
+    #openingScreen {
+        position: absolute;
+        width: 1550px;
+        height: 740px;
+        bottom: 1px;
+        right: 1px;
+    }
+    .host {
+        left: 800px;
+        top: 500px;
+        display: inline-block;
+        cursor: pointer;
+        position: absolute;
+    }
+    #textBox {
+        position: absolute;
+        top: 10px;
+        right: 35px;
+        background-color: #DF2F2F;
+    }
+    .center {
+        position: relative;
+        right: 35px;
+        top: 350px;
+    }
+
+/*CARD ANIMATION*/   
+    :root {
+    --card-width: 10rem;
+    --card-animation: slide-down 1s ease-in-out backwards;
+    
+    height: 100%;
+    }
+
+    section,
+    div,
+    span {
+    -webkit-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none; 
+    
+    }
+
+    body {
+    overflow: hidden;
+    }
+
+    @keyframes slide-down {
+    0% {
+        opacity: 0;
+        rotate: 45deg;
+        transform: translateX(50vw) translateY(-50vh) rotate(5deg);
+    }
+
+    40% {
+        opacity: 100%;
+    }
+
+    75% {
+        transform: translateX(0) translateY(0) rotate(0);
+    }
+
+    100% {
+        transform: translateX(inset) translateY(inset) rotate(inset);
+    }
+    }
+
+    .card {
+    overflow: hidden;
+    }
+
+    .card:nth-of-type(1) {
+    rotate: -29.7deg;
+    animation: var(--card-animation);
+    }
+    .card:nth-of-type(2) {
+    rotate: -20.1deg;
+    animation: var(--card-animation) 0.2s;
+    }
+    .card:nth-of-type(3) {
+    rotate: -10.3deg;
+    animation: var(--card-animation) 0.4s;
+    }
+    .card:nth-of-type(4) {
+    animation: var(--card-animation) 0.6s;
+    }
+    .card:nth-of-type(5) {
+    rotate: 9.9deg; 
+    animation: var(--card-animation) 0.8s;
+    }
+    .card:nth-of-type(6) {
+    rotate: 20deg; 
+    animation: var(--card-animation) 1s;
+    }
+    .card:nth-of-type(7) {
+    rotate: 30.1deg; 
+    animation: var(--card-animation) 1.2s;
+    }
+
+    .card {
+    background-color: lightgray;
+
+    width: var(--card-width);
+    aspect-ratio: 2/3;
+    border-radius: 1rem;
+
+    position: absolute;
+    top: calc(50% - (var(--card-width) * 1.5 / 2));
+    right: calc(50% - (var(--card-width) / 1.5));
+    transform-origin: 50% 190%;
+
+    box-shadow:
+    0px 0px 2.2px rgba(0, 0, 0, 0.02),
+    0px 0px 5.3px rgba(0, 0, 0, 0.028),
+    0px 0px 10px rgba(0, 0, 0, 0.035),
+    0px 0px 17.9px rgba(0, 0, 0, 0.042),
+    0px 0px 33.4px rgba(0, 0, 0, 0.05),
+    0px 0px 80px rgba(0, 0, 0, 0.07);
+
+    transition: rotate 0.15s ease-in-out, transform 0.22s ease-in-out;
+
+    }
+
+    .blue5 {
+        background-image: url("Blue5.png");
+        background-size: cover;
+        background-position: center;
+    }
+    .red9 {
+        background-image: url("Red9.png");
+        background-size: cover;
+        background-position: center;
+    }
+    .green7 {
+        background-image: url("Green7.png");
+        background-size: cover;
+        background-position: center;
+    }
+    .yellowSwitch {
+        background-image: url("YellowSwitch.png");
+        background-size: cover;
+        background-position: center;
+    }
+    .redPass {
+        background-image: url("RedPass.png");
+        background-size: cover;
+        background-position: center;
+    }
+    .wildCard {
+        background-image: url("WildCard.png");
+        background-size: cover;
+        background-position: center;
+    }
+    .blue3 {
+        background-image: url("Blue3.png");
+        background-size: cover;
+        background-position: center;
+    }
+
+    .fade-in-image {
+        position: absolute;
+        animation: fadeIn 3s;
+    }
+    @keyframes fadeIn {
+        0% { opacity: 0; }
+        20% { opacity: 0; }
+        40% { opacity: 0; }
+        60% { opacity: 0; }
+        80% { opacity: 0; }
+        100% {opacity: 1; }
+    }
+</style>
+</head>
+<body>
+    <img id="openingScreen" src="OpeningScreen.png">
+
+        <div class="center">
+            <div class="blue5 card"></div>
+            <div class="red9 card"></div>
+            <div class="green7 card"></div>
+            <div class="yellowSwitch card"></div>
+            <div class="redPass card"></div>
+            <div class="wildCard card"></div>
+            <div class="blue3 card"></div>
+        </div>
+
+        <div class="fade-in-image">
+            <img class="title" src="Title.png">
+        </div>
+
+        <div class="popup" onclick="popup()">
+            <button>
+                <img class="optionButtons" src="JoinARoom.png">
+            </button>
+            <span class="popuptext" id="myPopup">
+                <form>
+                    <label for="textBox"></label>
+                    <input type="text" id="textBox" name="textBox">
+                </form>
+            </span>
+        </div>
+
+        <button class="host">
+            <img class="optionButtons" src="HostARoom.png">
+        </button>
+
+<script>
+//POPUP ANIMATION
+    function popup() {
+        var popup = document.getElementById("myPopup");
+        popup.classList.toggle("show");
+    }
+</script>
+</body>
+</html>

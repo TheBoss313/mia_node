@@ -1,0 +1,109 @@
+<!--When button clicked, executes code-->
+<!--UNO! logo on top-->
+<!--Pause and Unpause button-->
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    body {
+        background-color: white;
+    }
+    button {
+        border: none;
+        background: none;
+    }
+    .pauseBtn {
+        width: 60px;
+        height: 60px;
+        cursor: pointer;
+        pointer-events: auto;
+    }
+    .pauseGame {
+        width: 900px;
+        height: 500px;
+    }
+    /*#pause {
+        width: 60px;
+        height: 60px;
+        cursor: pointer;
+    }*/
+
+    .popup {
+        left: 1450px;
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    .popup .popuptext {
+        visibility: hidden;
+        width: 1200px;
+        height:600px;
+        background-color: #e2dede;
+        color: #000000;
+        text-align: center;
+        border-radius: 30px;
+        position: absolute;
+        z-index: 1;
+        bottom: -600px;
+        right: 150px;
+        margin-left: -80px;
+        pointer-events: none;
+    }
+/* Toggle this class - hide and show the popup */
+    .popup .show {
+        visibility: visible;
+        -webkit-animation: fadeIn 0.5s;
+        animation: fadeIn 0.5s;
+    }
+
+/* Add animation (fade in the popup) */
+    @-webkit-keyframes fadeIn {
+        from {opacity: 0;} 
+        to {opacity: 1;}
+    }
+    @keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity:1 ;}
+    }
+
+</style>
+</head>
+<body>
+    <div class="popup" onclick="popup()">
+        <button id="myButton">
+            <img class="pauseBtn" id="myImg" src="Unpause.png">
+        </button>
+        <span class="popuptext" id="myPopup">
+            <img class="pauseGame" src="GamePaused.png">
+        </span>
+    </div>
+
+<script>
+//POPUP ANIMATION
+    function popup() {
+        var popup = document.getElementById("myPopup");
+        popup.classList.toggle("show");
+    }
+
+ //PAUSE & UNPAUSE BUTTON ANIMATION   
+    const myImg = document.getElementById("myImg");
+    const myButton = document.getElementById("myButton");
+
+    let isFirstImage = true; //Indicates the first image is being shown - changes depending on what image is on screen
+
+    myButton.addEventListener("click", function() {
+        if (isFirstImage) {
+            myImg.src = "Pause.png";
+        } 
+        else {
+            myImg.src = "Unpause.png";
+        }
+        isFirstImage = !isFirstImage; //Changes value of "isFirstImage" from true-false false-true
+    });
+</script>
+</body>
+</html>
