@@ -62,6 +62,7 @@ socket.on('confirmLeave', requestRoom);
 
 function requestRoom() {
   dialog('Waiting for a Room...');
+  console.log("AWAITING ROOM");
   socket.emit('requestRoom', playerName);
   room = 0;
   hand = [];

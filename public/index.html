@@ -7,10 +7,11 @@
     <title>Uno</title>
   </head>
   <body>
+    <canvas id="canvas" width="1000" height="600"></canvas>
     <script src="/socket.io/socket.io.js"></script>
     <script src="/main.js"></script>
 
-    <img id="openingScreen" src="OpeningScreen.png">
+    <img id="openingScreen" src="images/OpeningScreen.png">
 
         <div class="center">
             <div class="blue5 card"></div>
@@ -23,12 +24,12 @@
         </div>
 
         <div class="fade-in-image">
-            <img class="title" src="Title.png">
+            <img class="title" src="images/Title.png">
         </div>
 
         <div class="popup" onclick="popup()">
             <button>
-                <img class="optionButtons" src="JoinARoom.png">
+                <img class="optionButtons" src="images/JoinARoom.png">
             </button>
             <span class="popuptext" id="myPopup">
                 <form>
@@ -39,7 +40,7 @@
         </div>
 
         <button class="host">
-            <img class="optionButtons" src="HostARoom.png">
+            <img class="optionButtons" src="images/HostARoom.png">
         </button>
 
 <script>

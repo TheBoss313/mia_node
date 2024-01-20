@@ -191,37 +191,37 @@ transition: rotate 0.15s ease-in-out, transform 0.22s ease-in-out;
 }
 
 .blue5 {
-  background-image: url("Blue5.png");
+  background-image: url("images/Blue5.png");
   background-size: cover;
   background-position: center;
 }
 .red9 {
-  background-image: url("Red9.png");
+  background-image: url("images/Red9.png");
   background-size: cover;
   background-position: center;
 }
 .green7 {
-  background-image: url("Green7.png");
+  background-image: url("images/Green7.png");
   background-size: cover;
   background-position: center;
 }
 .yellowSwitch {
-  background-image: url("YellowSwitch.png");
+  background-image: url("images/YellowSwitch.png");
   background-size: cover;
   background-position: center;
 }
 .redPass {
-  background-image: url("RedPass.png");
+  background-image: url("images/RedPass.png");
   background-size: cover;
   background-position: center;
 }
 .wildCard {
-  background-image: url("WildCard.png");
+  background-image: url("images/WildCard.png");
   background-size: cover;
   background-position: center;
 }
 .blue3 {
-  background-image: url("Blue3.png");
+  background-image: url("images/Blue3.png");
   background-size: cover;
   background-position: center;
 }

@@ -9,7 +9,7 @@ io.on('connection', onConnection);
 http.listen(port, () => console.log('listening on port ' + port));
 
 const numRooms = 5;
-const maxPeople = 10;
+const maxPeople = 5;
 
 let deck = Array.apply(null, Array(112)).map(function (_, i) {
     return i;
@@ -161,17 +161,19 @@ function startGame(name) {
     console.log('>> ' + name + ': Requesting game...');
     let people;
     try {
-        people = io.sockets.adapter.rooms[name].length;
+        people = io.sockets.adapter.rooms.get(name).size;
     } catch (e) {
         console.log('>> ' + name + ': No people here...');
         return;
     }
     if (people >= 2) {
         console.log('>> ' + name + ': Starting');
-        let sockets_ids = Object.keys(io.sockets.adapter.rooms[name].sockets);
+        let sockets_ids = Array.from(io.sockets.adapter.rooms.get(name));
         for (let i = 0; i < people; i++) {
+          console.log(sockets_ids);
             data[name]['players'][i]['id'] = sockets_ids[i];
-            let playerName = io.sockets.sockets[sockets_ids[i]].playerName;
+            console.log(io.sockets.sockets.get(sockets_ids[i]));
+            let playerName = io.sockets.sockets.get(sockets_ids[i]).playerName;
             data[name]['players'][i]['name'] = playerName;
             console.log('>> ' + name + ': ' + playerName +
                 ' (' + sockets_ids[i] + ') is Player ' + i);
@@ -265,7 +267,6 @@ function startGame(name) {
  * @param {Socket} socket Client socket
  */
 function onConnection(socket) {
-
     /**
      * Whenever a room is requested, looks for a slot for the player,
      * upto 10 players in a room, maxRooms and started games are respected.
@@ -279,7 +280,7 @@ function onConnection(socket) {
             let name = 'Room_' + i;
             let people;
             try {
-                people = io.sockets.adapter.rooms[name].length;
+                people = io.sockets.adapter.rooms.get(name).size;
             } catch (e) {
                 people = 0;
             }
@@ -323,7 +324,7 @@ function onConnection(socket) {
      */
     //// TODO: Empty a room
     socket.on('disconnecting', function () {
-        room = Object.keys(io.sockets.adapter.sids[socket.id])[1];
+        room = Object.keys(io.sockets.adapter.sids.get(socket.id))[1];
         if (room !== undefined) {
             clearInterval(data[room]['timeout']['id']);
             io.to(room).emit('playerDisconnect', room);
